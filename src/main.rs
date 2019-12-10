@@ -7,8 +7,15 @@ fn main() {
      println!("{}",x);
     x=12;
     println!("{}",x);
-    x=index_of(&string::from("121l2jjdljsjflsdjfsd"),&string::from("21"));
+    x=index_of(&string::from("aaaaaa"),&string::from("sd"));
      println!("{}",x);
+    let x1=String::from("123456");
+    let mut x2=sub_string(&x1,-1,2);
+      println!("{}",x2);
+      let  y1=2;
+      x2=sub_string(&x1,-1, y1);
+       println!("{}", y1);
+       println!("{}",x2);
 
     
 }
@@ -57,4 +64,35 @@ fn index_of(strs:&String,target:&String)->int
   }
  }
  return -1;
+}
+
+fn sub_string(str:&String,index:i32,mut sub_len:i32)->String
+{
+    if Some(str) == None || str.len() < ((index.signum() +sub_len) as usize)
+    {
+        return String::from("");
+    }
+    if index >= 0 {
+    let slice = &str[index as usize ..((sub_len+index) as usize)];
+    return slice.to_string();
+    }
+    else
+    {
+     let start_index=str.len() as i32 -sub_len +index-1;
+      println!("start_index:{}",start_index);
+     if start_index >0
+     {
+         let i_start=start_index as usize;
+         let i_end=(start_index  +sub_len) as usize;
+         let slice =&str[i_start..i_end];
+           sub_len=1;
+           println!("sub_len change:{}",sub_len);
+         return slice.to_string();
+     }
+     else {
+         return String::from("");
+     }
+        
+    }
+
 }
