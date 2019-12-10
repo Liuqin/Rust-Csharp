@@ -1,5 +1,5 @@
 [package]
-name = "Rust-Csharp"
+name = "rust_csharp"
 version = "0.1.0"
 authors = ["Charly.Liu <287428729@qq.com>"]
 edition = "2018"

@@ -2,7 +2,9 @@ pub mod sharp_helper;
 use sharp_helper::int as int;
 fn main() {
     println!("Hello, world!");
-    let x:int=max(3,5);
+    let mut x:int=max(3,5);
+     println!("{}",x);
+    x=12;
     println!("{}",x);
 }
 
