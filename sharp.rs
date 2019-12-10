@@ -1,10 +1,16 @@
-
+#[allow(non_camel_case_types)]
     type int=i32;
+#[allow(non_camel_case_types)]
     type long =i64;
+#[allow(non_camel_case_types)]
     type bit = i8;
+#[allow(non_camel_case_types)]
     type short =i16;
+#[allow(non_camel_case_types)]
     type string=String;
+#[allow(non_camel_case_types)]
     type ushort=u32;
+#[allow(non_camel_case_types)]
     type float=u64;
     // type var= let;
     // type function=fn;
