@@ -17,13 +17,17 @@ pub trait IStringExpand {
    fn index_of(&self,target:&String)->i32
 {
  let  n:i32=target.len() as i32;
- let  moveindex:i32=self.len() as i32-n ;
+ let  moveindex:i32=self.len() as i32-n;
+
  let mut x:i32=0;
  if Some(target)==None || !self.contains(target) || Some(self)==None || moveindex <0
  {
+     println!("error!");
      return -1
  }
 
+
+//  println!("movecount:{},source:{},target:{}",moveindex,&self,&target);
  while x <moveindex
  {
   x=x+1;
@@ -31,15 +35,17 @@ pub trait IStringExpand {
   let  realindex=index+x;
   let mut chars_str=self.chars();
   let mut chars_target=target.chars();
-  while index< n 
+  while index<= n 
   {
       if chars_str.nth(realindex as usize)==chars_target.nth(index as usize)
       {
-          index=index+1;
-          if index== n-1
+        //   println!("index:{},n:{}",index,n);
+           index=index+1;
+          if index >= n-1
           {
-            return x;
+            return x as i32;
           }
+         
       }
       else {
          break;
