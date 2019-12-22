@@ -6,6 +6,7 @@ pub trait IStringExpand {
    fn pand_right(&mut self,append:&str,lenth:i32)->String;
    fn as_i32(&self)->i32;
    fn as_usize(&self)->usize;
+   fn index_char_as_string(&mut self,index:i32)->String;
 }
 
 pub trait IConvertExpand {
@@ -15,7 +16,15 @@ pub trait IConvertExpand {
 
 
 
+
+
  impl IStringExpand for String {
+
+    // 获取某个字符串中某个字符，转为String 类型
+     fn index_char_as_string(&mut self,index:i32)->String{
+      let index_usize:usize=index.to_string().as_usize();
+      return self.chars().nth(index_usize).unwrap().to_string();
+     }
 
    // 实现字符串快速打印
         fn console(&self){
