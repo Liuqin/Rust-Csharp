@@ -19,12 +19,12 @@ fn main() {
     let mut r= String::from("123456");
     r.pand_left(&String::from("$"),r.len().as_i32()+1).console();
     String::from("123").as_i32().to_string().console();
-    let mut str_test=String::from("ABCDEFGHIJK");
+    let  str_test=String::from("ABCDEFGHIJK");
     //打印每个字符
     for i in 0..str_test.len(){
-       str_test.index_char_as_string(i.as_i32()).console();
-       i.to_string().console();
-       str_test.console();
+      str_test.index_char_as_string(i.as_i32()).console();
+      i.to_string().console();
+      str_test.console();
     }
 
 }

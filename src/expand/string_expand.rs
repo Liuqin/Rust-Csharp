@@ -6,7 +6,8 @@ pub trait IStringExpand {
    fn pand_right(&mut self,append:&str,lenth:i32)->String;
    fn as_i32(&self)->i32;
    fn as_usize(&self)->usize;
-   fn index_char_as_string(&mut self,index:i32)->String;
+   fn index_char_as_string(&self,index:i32)->String;
+   fn as_mut(&self)-> &mut String;
 }
 
 pub trait IConvertExpand {
@@ -20,8 +21,17 @@ pub trait IConvertExpand {
 
  impl IStringExpand for String {
 
+
+     fn as_mut(&self)-> &mut String
+     {
+          let ptr: *mut String = &mut self.clone();  
+          let y:&mut String= unsafe { &mut *ptr };
+          return  y;
+     }
+
+     
     // 获取某个字符串中某个字符，转为String 类型
-     fn index_char_as_string(&mut self,index:i32)->String{
+     fn index_char_as_string(&self,index:i32)->String{
       let index_usize:usize=index.to_string().as_usize();
       return self.chars().nth(index_usize).unwrap().to_string();
      }
